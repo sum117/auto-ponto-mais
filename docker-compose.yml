@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+    command: bun run main.js
+    container_name: auto-ponto-mais
+    environment:
+      EMAIL: ${EMAIL}
+      PASSWORD: ${PASSWORD}
+      LATITUDE: ${LATITUDE}
+      LONGITUDE: ${LONGITUDE}
+      ADDRESS: ${ADDRESS}
+      IP_ADDRESS: ${IP_ADDRESS}
+    restart: unless-stopped
