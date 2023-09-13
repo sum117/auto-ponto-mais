@@ -6,7 +6,7 @@ Para instalar dependências:
 bun install
 ```
 
-To run:
+Para rodar:
 
 ```bash
 bun run main.js
@@ -24,12 +24,33 @@ docker build -t auto-ponto-mais . && docker run -d \
 -e LATITUDE=xx.xxxx \
 -e LONGITUDE=yy.yyyy \
 -e ADDRESS="Seu Endereço Completo" \
+-e IP_ADDRESS="" \
 auto-ponto-mais
+```
+
+Ou simplesmente use o repositório remoto da imagem docker:
+
+```bash
+docker run -d \
+--restart always \
+-e EMAIL=seu_email@example.com \
+-e PASSWORD=sua_senha \
+-e LATITUDE=xx.xxxx \
+-e LONGITUDE=yy.yyyy \
+-e ADDRESS="Seu Endereço Completo" \
+# cheque o seu IP em: https://ipinfo.io/
+-e IP_ADDRESS="" \
+sum117/auto-ponto-mais
 ```
 
 Caso contrário, apenas preencha o arquivo .env.example e renomeie para .env:
 
 ```bash
 cp .env.example .env
+```
+Para finalmente rodar:
+
+```bash
+docker-compose up -d
 ```
 
