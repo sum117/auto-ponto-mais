@@ -96,8 +96,8 @@ function makePayload({ token, clientId, uuid, login, sessionToken }) {
             "pin": null,
         },
         "time_card": {
-            "latitude": parseInt(BUN.env.LATITUDE),
-            "longitude": parseInt(BUN.env.LONGITUDE),
+            "latitude": parseInt(Bun.env.LATITUDE),
+            "longitude": parseInt(Bun.env.LONGITUDE),
             "address": Bun.env.ADDRESS,
             "original_latitude": null,
             "original_longitude": null,
