@@ -24,7 +24,7 @@ docker build -t auto-ponto-mais . && docker run -d \
 -e LATITUDE=xx.xxxx \
 -e LONGITUDE=yy.yyyy \
 -e ADDRESS="Seu Endereço Completo" \
-nome_da_sua_imagem
+auto-ponto-mais
 ```
 
 Caso contrário, apenas preencha o arquivo .env.example e renomeie para .env:
