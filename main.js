@@ -3,6 +3,9 @@ import axiosRetry from 'axios-retry';
 import cron from 'node-cron';
 import { v4 as uuidv4 } from 'uuid';
 
+// Due to how bun is working with timezones at the moment, this .env variable is mandatory, and you shouldn't use node-cron's timezone property, because it will literally not work, even in the "* * * * *" cron expression.
+Bun.env.TZ = "America/Sao_Paulo";
+
 axiosRetry(axios, {
     retries: 3,
     retryDelay: (retryCount) => {
@@ -154,9 +157,7 @@ async function registerTimeCard() {
 
 console.log("Iniciando o cronjob para registrar o ponto...");
 
-cron.schedule('0 9,12,13,18 * * 1-5', registerTimeCard, {
-    timezone: "America/Sao_Paulo"
-});
+cron.schedule('0 9,12,13,18 * * 1-5', registerTimeCard);
 
 console.log("Cronjob iniciado com sucesso!");
 console.log("Aguardando o horário para registrar o ponto...");
